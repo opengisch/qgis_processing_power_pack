@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - '**'
+  release:
+    types: [published]
+
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_REF: ${{ github.ref }}
+    if: ${{ github.event_name == 'release' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          submodules: recursive
+      - name: Install dependencies
+        run: |
+          sudo apt update && sudo apt install qtbase5-dev qttools5-dev-tools
+          sudo pip install qgis-plugin-ci
+      - name: Release
+        run: |
+          qgis-plugin-ci release ${GITHUB_REF##*/} --github-token ${GITHUB_TOKEN} --osgeo-username ${{ secrets.OSGEO_PLUGIN_USERNAME }} --osgeo-password ${{ secrets.OSGEO_PLUGIN_PASSWORD }}

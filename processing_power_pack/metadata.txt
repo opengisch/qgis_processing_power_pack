@@ -1,0 +1,15 @@
+[general]
+name=ProcessingPowerPack
+description=Processing plugin with extra algorithms
+version=1.0
+qgisMinimumVersion=3.0
+author=Matthias Kuhn
+email=info@opengis.ch
+about=The processing power pack
+category=Analysis
+icon=icon.png
+homepage=https://github.com/opengisch/qgis_processing_power_pack
+tracker=https://github.com/opengisch/qgis_processing_power_pack
+repository=https://github.com/opengisch/qgis_processing_power_pack
+experimental=False
+deprecated=False
