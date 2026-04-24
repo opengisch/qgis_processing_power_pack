@@ -3,6 +3,7 @@ name=ProcessingPowerPack
 description=Processing plugin with extra algorithms
 version=1.0
 qgisMinimumVersion=3.0
+qgisMaximumVersion=4.99
 author=Matthias Kuhn
 email=info@opengis.ch
 about=The processing power pack
